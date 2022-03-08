@@ -1,0 +1,26 @@
+.home {
+  color: #52688F;
+  border: none;
+  background-color: #E3E7F1;
+
+}
+.mat-toolbar{
+  position: fixed;
+  bottom: 0;
+  left: 0%;
+  color: white;
+  background-color: #E3E7F1;
+
+}
+.register {
+  color: white;
+  background-color: #52688F;
+  justify-content: center;
+  display: flex;
+}
+.mat-form-field {
+  width: 100%;
+  min-width: 300px;
+  justify-content: center;
+  display: flex;
+}

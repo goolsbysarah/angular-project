@@ -17,6 +17,7 @@ export class UserLoginComponent implements OnInit {
  data: any;
  token?: string;
  error: any;
+ currUser: any;
 
   constructor(
     private router: Router,
@@ -46,16 +47,25 @@ export class UserLoginComponent implements OnInit {
     const login = new UserLogin();
     login.Email = this.form.get('Email').value;
     login.Password = this.form.get('Password').value;
-
+localStorage.clear();
     this.UserService.login(login).subscribe((result) => {
       this.data = result;
+      //JSON.parse(this.data);
+      //JSON.stringify(this.data);
+      console.log(this.data);
+      //clear prior to logging in
+      localStorage.clear();
+      console.log(localStorage.getItem('userId'));
       if (this.data) {
-        const currUser = new UserModel();
-        currUser.userId = this.data;
+        this.currUser = "";
+        this.currUser = this.data;
         //set the local storage user id for easy access
         localStorage.setItem('userId', this.data);
+        console.log(login);
         console.log("successful login");
         this.snackBar.dismiss();
+        //this.goToJournal();
+        this.goToCreateJournal();
       }
       //what is the angular function for this
       else if(this.data == null)
@@ -80,5 +90,9 @@ export class UserLoginComponent implements OnInit {
 
   goToMainMenu(){
     this.router.navigateByUrl('/main-menu')
+  }
+
+  goToCreateJournal(){
+    this.router.navigateByUrl('/create-journal');
   }
 }

@@ -11,7 +11,9 @@ const url = environment.api;
 export class UserService {
 constructor(private http: HttpClient){}
  httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  headers: new HttpHeaders({ 'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Access-Control-Allow-Headers': 'Content-Type'})
 };
 
  registerUser!: UserRegistration;
@@ -20,12 +22,12 @@ constructor(private http: HttpClient){}
 login(loginModel: UserLogin){
   //once api is set up in backend, this function will make an http POST call
   //need the login url
-return this.http.post(url + '/Login/Authenticate', loginModel, this.httpOptions);
+return this.http.post(url + '/Login/Authenticate', loginModel, { responseType: 'text'});
 }
  register(registerModel: UserRegistration){
    //once api is set up in backend this function will an http POST call to add user to database
    //need the register url
-  return this.http.post(url + 'NewAccount/Create', registerModel, this.httpOptions);
+  return this.http.post(url + '/NewAccount/Create', registerModel, this.httpOptions);
  }
 
 

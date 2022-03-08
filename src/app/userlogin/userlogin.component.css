@@ -20,7 +20,7 @@ mat-raised-button {
 .register {
   color: white;
   background-color: #52688F;
-  justify-context: flex-end;
+  justify-content: flex-end;
   float: right;
 }
 .mat-toolbar{

@@ -3,7 +3,6 @@
 import { JournalService } from './services/journal.service';
 import { UserService } from './services/user.service';
 //import { ViewOneJournalComponent } from './Features/ViewOneJournal/viewonejournal.component';
-//import { UserRegistrationComponent } from './userregistration/userregistration.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -28,6 +27,10 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { JournalComponent } from './journal/journal.component';
+import { UserRegistrationComponent } from './userregistration/userregistration.component';
+import { ViewJournalsComponent } from './viewjournals/viewjournals.component';
+import { ViewOneJournalComponent } from './viewonejournal/viewonejournal.component';
 //import { ViewJournalComponent } from './Features/ViewJournal/viewjournal.component';
 
 
@@ -35,10 +38,10 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
   declarations: [
     AppComponent,
     UserLoginComponent,
-    //UserRegistrationComponent,
-    //ViewJournalComponent,
-    //JournalComponent,
-    //ViewOneJournalComponent,
+    UserRegistrationComponent,
+    ViewJournalsComponent,
+    JournalComponent,
+    ViewOneJournalComponent,
   ],
   imports: [
     BrowserModule,

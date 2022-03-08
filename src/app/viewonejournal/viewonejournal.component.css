@@ -1,0 +1,56 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+}
+
+button{
+  margin: 2px;
+}
+
+.create-icon {
+  color: #52688F;
+   float: right;
+   border: none;
+   background-color: white;
+
+ }
+ .mat-toolbar{
+   position: fixed;
+   bottom: 0;
+   left: 0%;
+   color: white;
+   background-color: #E3E7F1;
+
+ }
+
+ .create {
+   color: #52688F;
+   border: none;
+   background-color: #E3E7F1;
+   float: right;
+
+
+ }
+
+ .delete{
+   color: #52688F;
+   border: none;
+   background-color: white;
+   float: right;
+ }
+
+ .home {
+   color: #52688F;
+   border: none;
+   background-color: #E3E7F1;
+
+ }
+
+ .example-spacer {
+
+   flex: 1 1 auto;
+ }

@@ -4,45 +4,50 @@ import { Injectable } from "@angular/core";
 import {JournalModel} from '../models/journal.model';
 import { Router, ActivatedRoute } from "@angular/router";
 import { HttpClient, HttpHeaderResponse, HttpHeaders } from "@angular/common/http";
+import { Observable } from 'rxjs';
 
 const url = environment.api;
+
 @Injectable({
   providedIn: 'root'
 })
 
 export class JournalService {
-   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json',
+  'Access-Control-Allow-Headers' : 'content-type',
+  'Access-Control-Allow-Methods' : 'POST, GET, DELETE, PUT',
+  'Access-Control-Allow-Origin' : '*',
+  'Cache-Control' : 'no-cache' })
   };
+
   constructor(
-    private router: Router,
-    private route: ActivatedRoute,
     private http: HttpClient,
-    private httpHeaders: HttpHeaders,
-    ) { }
+    ) { console.log("journal service"); }
 
-getJournal(userId?: number){
+getJournal(userId?: string){
 //get all journals based on the user id
-  return this.http.get(url + '/GetAll?userID=' + userId,  { responseType: 'json' })
-
+  return this.http.get<Observable<JournalModel[]>>(url + '/Journal/GetAll?userID=' + userId,  { responseType: 'json' })
 }
 
 createJournal(journal: JournalModel){
-  return this.http.post(url + '/Create', journal, this.httpOptions);
+  console.log(journal);
+  return this.http.post(url + '/Journal/Create', journal, this.httpOptions);
 }
 
 getJournalById(id: string){
   //need the journal url
-  return this.http.get(url + '/GetJournal?journalID=' + id, { responseType: 'json'});
+  return this.http.get(url + '/Journal/GetJournal?journalID=' + id, { responseType: 'json'});
 
 }
 
 deleteJournalById(id: string){
-  return this.http.delete(url + '/Delete?journalID=' + id, this.httpOptions);
+  return this.http.delete(url + '/Journal/Delete?journalID=' + id, this.httpOptions);
 }
 
 updateJournal(journal: JournalModel){
-  return this.http.put(url + '/Update', journal, this.httpOptions);
+  return this.http.put(url + '/Journal/Update', journal, this.httpOptions);
 }
 
 

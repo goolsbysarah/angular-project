@@ -1,0 +1,29 @@
+<div class="journal">
+  <mat-card>
+    <mat-card-title>Add Journal</mat-card-title>
+  <mat-card-content>
+  <form [formGroup]="journalForm" (ngSubmit)="onSubmit()">
+    <p>
+      <mat-form-field>
+        <input type="text" matInput placeholder="Title" formControlName="Title">
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field>
+        <textarea rows="6" cols="60" type="textarea" matInput placeholder="Body" formControlName="Body"></textarea>
+      </mat-form-field>
+    </p>
+
+
+    <button class="register" mat-raised-button>Add</button>
+    </form>
+  </mat-card-content>
+</mat-card>
+  </div>
+
+    <mat-toolbar>
+    <button class="home" (click)="goToMain()">
+    <mat-icon>home</mat-icon>
+    </button>
+    <span class="example-spacer"></span>
+    </mat-toolbar>
