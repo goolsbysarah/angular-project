@@ -1,0 +1,53 @@
+:host {
+  display: flex;
+  justify-content: center;
+  margin: 100px 0px;
+}
+.mat-form-field {
+  width: 100%;
+  min-width: 300px;
+}
+mat-card-title,
+mat-card-content {
+  display: flex;
+  justify-content: center;
+}
+mat-raised-button {
+  display: flex;
+  justify-content: flex-end;
+  background-color: #BDC6D9;
+}
+.register {
+  color: white;
+  background-color: #52688F;
+  justify-context: flex-end;
+  float: right;
+}
+.mat-toolbar{
+  position: fixed;
+  bottom: 0;
+  left: 0%;
+  color: white;
+  background-color: #E3E7F1;
+
+}
+
+.create {
+  color: #52688F;
+  border: none;
+  background-color: #E3E7F1;
+  float: right;
+
+
+}
+.home {
+  color: #52688F;
+  border: none;
+  background-color: #E3E7F1;
+
+}
+
+.example-spacer {
+
+  flex: 1 1 auto;
+}
