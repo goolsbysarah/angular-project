@@ -64,8 +64,8 @@ localStorage.clear();
         console.log(login);
         console.log("successful login");
         this.snackBar.dismiss();
-        //this.goToJournal();
-        this.goToCreateJournal();
+        //this.goToCreateJournal();
+        this.goToJournal();
       }
       //what is the angular function for this
       else if(this.data == null)
@@ -95,4 +95,6 @@ localStorage.clear();
   goToCreateJournal(){
     this.router.navigateByUrl('/create-journal');
   }
+
+
 }

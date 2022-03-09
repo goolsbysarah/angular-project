@@ -1,3 +1,4 @@
+import { ViewOneJournalComponent } from './viewonejournal/viewonejournal.component';
 import { UserRegistrationComponent } from './userregistration/userregistration.component';
 import { UserRegistration } from './models/user.model';
 import { JournalComponent } from './journal/journal.component';
@@ -11,7 +12,8 @@ const routes: Routes = [
   { path: 'login', component: UserLoginComponent },
   { path: 'journal', component: ViewJournalsComponent },
   { path: 'register', component: UserRegistrationComponent },
-  { path: 'create-journal', component: JournalComponent }
+  { path: 'create-journal', component: JournalComponent },
+  { path: 'view-one', component: ViewOneJournalComponent }
 ];
 
 @NgModule({

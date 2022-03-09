@@ -1,20 +1,26 @@
-<button class="delete">
+
+<button (click)="delete(journal.JournalID)"  class="delete">
   <mat-icon>delete</mat-icon>
 </button>
-
-<h3>Journal One: Used 54321 technique</h3>
+<div class="one-journal" *ngIf="isLoaded">
+<h1>Title</h1>
 <br>
-<h4>2:42pm 2/18/2022</h4>
+{{journal.Title}}
 <br>
+<h2>Last Updated</h2>
+{{journal.LastUpdated | date: 'short' }}
+<h2>Entry</h2>
+{{journal.Body}}
+<br>
+</div>
 
-Today I had a complete meltdown in the grocery store but was able to connect with my surroundings again and calm down by using the 54321 technique. I felt triggered by some of the people there and have been stressed out at work.
 <mat-toolbar>
 
-<button class="home">
+<button class="home" (click)="goToMain()">
   <mat-icon>home</mat-icon>
 </button>
 <span class="example-spacer"></span>
-<button class="create">
+<button class="edit" (click)="goToEdit(journal.JournalID)">
 <mat-icon>edit</mat-icon>
 </button>
 </mat-toolbar>

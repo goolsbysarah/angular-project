@@ -13,7 +13,7 @@ const url = environment.api;
 })
 
 export class JournalService {
-
+viewOneJournalId?: string;
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json',
   'Access-Control-Allow-Headers' : 'content-type',
@@ -38,7 +38,8 @@ createJournal(journal: JournalModel){
 
 getJournalById(id: string){
   //need the journal url
-  return this.http.get(url + '/Journal/GetJournal?journalID=' + id, { responseType: 'json'});
+  this.viewOneJournalId = id;
+  return this.http.get<JournalModel>(url + '/Journal/GetJournal?journalID=' + id, { responseType: 'json'});
 
 }
 

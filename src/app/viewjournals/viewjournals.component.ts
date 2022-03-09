@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { JournalService } from '../services/journal.service';
 import { Component, ViewChild } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
@@ -14,11 +15,12 @@ import { JournalModel } from '../models/journal.model';
 })
 export class ViewJournalsComponent {
 
-  constructor(private JournalService: JournalService) { console.log("help");}
+  constructor(private JournalService: JournalService, private route: Router) { console.log("help");}
 
-  displayedColumns = ['LastUpdated', 'Title', 'Body'];
+  displayedColumns = ['LastUpdated', 'Title', 'Body', 'Action'];
   dataSource = new MatTableDataSource<JournalModel[]>();
   journals?: any;
+  journal?: any;
   userId?: any; //this will be the user's id when they log in
  // @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -43,8 +45,23 @@ export class ViewJournalsComponent {
           console.log(this.journals);
         this.dataSource.data = this.journals;
         }
-        //add if i don't receive data
+        //add if i don't receive data because they have no journals, route them to add one
       })
+    }
+    getJournal(id: string){
+      console.log(id);
+      this.JournalService.getJournalById(id).subscribe(res => {
+          this.journal = res;
+          console.log(this.journal);
+          console.log("routing to view one");
+          this.route.navigateByUrl('view-one');
+      });
+
+    }
+
+    goToViewOne(){
+      console.log("going to view one");
+      this.route.navigateByUrl('view-one');
     }
 
 

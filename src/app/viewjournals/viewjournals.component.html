@@ -22,6 +22,16 @@
       <mat-cell *matCellDef="let journal"> {{ journal.body }} </mat-cell>
     </ng-container>
 
+    <!-- Action Column -->
+    <ng-container matColumnDef="Action">
+      <mat-header-cell *matHeaderCellDef> View </mat-header-cell>
+      <mat-cell *matCellDef="let journal">
+        <button  class="view" >
+          <mat-icon (click)="getJournal(journal.journalID)">visibility</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
   </mat-table>
